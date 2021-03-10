@@ -5,7 +5,7 @@
 [![Registry](https://img.shields.io/pypi/v/goodread.svg)](https://pypi.python.org/pypi/goodread)
 [![Codebase](https://img.shields.io/badge/github-master-brightgreen)](https://github.com/roll/goodread-py)
 
-> This software is in the early stages and not well tested
+> This software is in the early stages and not well-tested
 
 Goodread executes Python and Bash codeblocks in Markdown and writes the results back.
 
