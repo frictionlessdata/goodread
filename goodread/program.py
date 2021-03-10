@@ -1,6 +1,8 @@
 import typer
+import difflib
 from typing import Optional
 from .document import Document
+from . import helpers
 from . import config
 
 
@@ -24,11 +26,28 @@ def version(value: bool):
 @program.command()
 def program_main(
     path: str = typer.Argument(..., help="Path to markdown"),
-    write: bool = typer.Option(default=False, help="Write the results inline"),
+    diff: bool = typer.Option(default=False, help="Return the diff"),
+    print: bool = typer.Option(default=False, help="Return the document"),
     version: Optional[bool] = typer.Option(None, "--version", callback=version),
 ):
     """Goodread executes Python and Bash codeblocks in Markdown and writes the results back."""
+
+    # Process document
     document = Document(path)
-    text = document.process(write=write)
-    if not write:
-        typer.secho(text)
+    source, target = document.process()
+
+    # Diff document
+    if diff:
+        l1 = source.splitlines(keepends=True)
+        l2 = target.splitlines(keepends=True)
+        ld = list(difflib.unified_diff(l1, l2, fromfile="source", tofile="target"))
+        typer.secho("".join(ld), nl=False)
+        raise typer.Exit()
+
+    # Print document
+    if print:
+        typer.secho(target)
+        raise typer.Exit()
+
+    # Write document
+    helpers.write_file(path, target)
