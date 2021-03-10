@@ -31,6 +31,7 @@ class GoodreadRenderer(MarkdownRenderer):
                     output = subprocess.check_output(code, shell=True).decode().strip()
                 except Exception as exception:
                     output = exception.output.decode().strip()
+            output = "\n".join(line.rstrip() for line in output.splitlines())
 
             # Write code
             if output is not None:
