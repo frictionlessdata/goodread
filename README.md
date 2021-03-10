@@ -1,9 +1,9 @@
 # Goodread
 
-[![Build](https://img.shields.io/github/workflow/status/roll/goodread-py/general/master)](https://github.com/roll/goodread-py/actions)
-[![Coverage](https://img.shields.io/codecov/c/github/roll/goodread-py/master)](https://codecov.io/gh/roll/goodread-py)
+[![Build](https://img.shields.io/github/workflow/status/roll/goodread-py/general/main)](https://github.com/roll/goodread-py/actions)
+[![Coverage](https://img.shields.io/codecov/c/github/roll/goodread-py/main)](https://codecov.io/gh/roll/goodread-py)
 [![Registry](https://img.shields.io/pypi/v/goodread.svg)](https://pypi.python.org/pypi/goodread)
-[![Codebase](https://img.shields.io/badge/github-master-brightgreen)](https://github.com/roll/goodread-py)
+[![Codebase](https://img.shields.io/badge/github-main-brightgreen)](https://github.com/roll/goodread-py)
 
 > This software is in the early stages and not well-tested
 
