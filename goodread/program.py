@@ -1,5 +1,6 @@
 import typer
 from typing import Optional
+from .document import Document
 from . import config
 
 
@@ -20,9 +21,14 @@ def version(value: bool):
 # Command
 
 
-@program.callback()
+@program.command()
 def program_main(
-    version: Optional[bool] = typer.Option(None, "--version", callback=version)
+    path: str = typer.Argument(..., help="Path to markdown"),
+    write: bool = typer.Option(default=False, help="Write the results inline"),
+    version: Optional[bool] = typer.Option(None, "--version", callback=version),
 ):
     """Goodread executes Python and Bash codeblocks in Markdown and writes the results back."""
-    pass
+    document = Document(path)
+    text = document.process(write=write)
+    if not write:
+        typer.secho(text)
