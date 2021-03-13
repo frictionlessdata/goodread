@@ -1,6 +1,6 @@
-import os
 import yaml
 import marko
+import subprocess
 from .renderer import GoodreadRenderer
 
 
@@ -18,24 +18,26 @@ class Document:
             source = file.read()
             target = source
 
-        # Convert document
-        to_remove = []
+        # Parse document
+        prepare = []
+        cleanup = []
         if target.startswith("---"):
             frontmatter, target = target.split("---", maxsplit=2)[1:]
             metadata = yaml.safe_load(frontmatter)
             if "goodread" in metadata:
-                if "clean" in metadata["goodread"]:
-                    for path in metadata["goodread"]["clean"]:
-                        if os.path.exists(path):
-                            raise RuntimeError(f"Clean path already exists: {path}")
-                        if os.path.relpath(path, ".") != path:
-                            raise RuntimeError(f"Clean path is unsafe: {path}")
-                        to_remove.append(path)
+                prepare.extend(metadata["goodread"].get("prepare", []))
+                cleanup.extend(metadata["goodread"].get("cleanup", []))
+
+        # Prepare document
+        for code in prepare:
+            subprocess.run(code, shell=True)
+
+        # Convert document
         target = markdown.convert(target)
         target = frontmatter.join(["---"] * 2) + "\n" + target
 
-        # Clean document
-        for to_remove_path in to_remove:
-            os.remove(to_remove_path)
+        # Cleanup document
+        for code in cleanup:
+            subprocess.run(code, shell=True)
 
         return source, target
