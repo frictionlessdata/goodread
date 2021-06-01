@@ -31,7 +31,7 @@ jobs:
       - name: Test software
         run: make test
       - name: Report coverage
-        uses: codecov/codecov-action@v1.4.1
+        uses: codecov/codecov-action@v1
 
   # Test (MacOS)
 
