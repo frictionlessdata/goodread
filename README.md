@@ -1,9 +1,10 @@
 # Goodread
 
-[![Build](https://img.shields.io/github/workflow/status/roll/goodread-py/general/main)](https://github.com/roll/goodread-py/actions)
-[![Coverage](https://img.shields.io/codecov/c/github/roll/goodread-py/main)](https://codecov.io/gh/roll/goodread-py)
+[![Build](https://img.shields.io/github/workflow/status/frictionlessdata/goodread/general/main)](https://github.com/frictionlessdata/goodread/actions)
+[![Coverage](https://img.shields.io/codecov/c/github/frictionlessdata/goodread/main)](https://codecov.io/gh/frictionlessdata/goodread)
 [![Registry](https://img.shields.io/pypi/v/goodread.svg)](https://pypi.python.org/pypi/goodread)
-[![Codebase](https://img.shields.io/badge/github-main-brightgreen)](https://github.com/roll/goodread-py)
+[![Codebase](https://img.shields.io/badge/codebase-github-brightgreen)](https://github.com/frictionlessdata/goodread)
+[![Support](https://img.shields.io/badge/support-discord-brightgreen)](https://discord.com/channels/695635777199145130/695635777199145133)
 
 > This software is in the early stages and not well-tested
 
@@ -29,4 +30,4 @@ $ goodread README.md
 
 ## Documentation
 
-This document provides all available documentation for the project.
+This document and docstrings provide all available documentation for the project.
