@@ -61,7 +61,7 @@ setup(
     description="Goodread executes Python and Bash codeblocks in Markdown and writes the results back",
     author="Evgeny Karev",
     author_email="eskarev@gmail.com",
-    url="https://github.com/roll/goodread-py",
+    url="https://github.com/frictionlessdata/goodread",
     license="MIT",
     keywords=[
         "goodread",
